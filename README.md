@@ -7,7 +7,7 @@
 
 The plugin is designed to be used in conjuction with css columns and mediaqueries to allow certain content to be pushed up the order into a better visual order without having to resort to overly complicated (or impossible) layouts. Let me explain with a (rubbish) diagram:
 
-<img src="https://github.com/Designer023/jQuerySourceReordering/blob/master/reasoning-example.png">
+<img src="https://raw.githubusercontent.com/Designer023/jQuerySourceReordering/master/reasoning-example.png">
 
 In the first example is how the content is arranged in the source and how you would expect to see it in a mobile format. The second is once you move to a wider view and more columns enter the design. Note: there are many alternative layouts that could be used here. I have used content with a regular length, but if varying content lengths are used some of the alternatives turn out not to work. There are also many that were considered but dropped to to lack of browser support!
 

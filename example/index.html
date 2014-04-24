@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8" />
+  <title>Xperimentals</title>
+  
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+	<h1>jQuerySourceReordering</h1>
+
+	<p>The panels will reorder depending on their data attributes. A <strong>data-order='5'</strong> will move the panel to the position regardless of window width. A <strong>data-order='{ "468-720": 0, "1024-1200": 99 }'</strong> will only move a panel when the matching range is applicable. The last range that applies takes precidence.</p>
+
+ <p>A few notes for the second example are: it must be valid JSON - the quote marks must be the right type... use a 'single' quote to wrap the data-order, and "double" to wrap the ranges. Use <a href="http://jsonlint.com/">jsonlint.com</a> to check your JSON if you're not sure.</p>
+
+ <p>The plugin initialization takes 1 required argument which is the class of the item to reorder. The second argument is the option list which is optional. It currently has one vale you can change - resize. It controls whether the items should be reordered on a window size change. As this can be jarring for users it is defaulted to false. Ouside a range the order will default to the original source order.</p>
+
+<p>This is ideally used in conjunction with css columns so important content can be pushed up the page. This should mean that the markup follows both a good technical and presentational hierachy and order.</p>
+
+<h2>Example</h2>
+  <div class="wrapper">
+
+  <div class="panel panel-1" data-order='1'>
+      <p>#1 - data-order='1'</p>
+      
+
+      <p>The four whales slain that evening had died wide apart; one, far to windward; one, less distant, to leeward; one ahead; one astern. These last three were brought alongside ere nightfall; but the windward one could not be reached till morning; and the boat that had killed it lay by its side all night; and that boat was Ahab's.</p>
+  </div>
+  
+  <div class="panel panel-2"  data-order='4'>
+    <p>#2 - data-order='4'</p>
+    <p>
+       "I have no quarrel with Tars Tarkas; together we rule supreme the greatest of the lesser communities among the green men; we do not wish to fight between ourselves; and so if you were dead, John Carter, I should be glad. Under two conditions only, however, may you be killed by us without orders from Tal Hajus; in personal combat in self-defense, should you attack one of us, or were you apprehended in an attempt to escape.
+    </p>
+  </div>
+  
+
+  <div class="panel panel-3"  data-order='3'>
+    <p>#3 - data-order='3'</p>
+    <p>When she got back to the Cheshire Cat, she was surprised to find quite a large crowd collected round it: there was a dispute going on between the executioner, the King, and the Queen, who were all talking at once, while all the rest were quite silent, and looked very uncomfortable.</p>
+  </div>
+
+  <div class="panel panel-4"  data-order='2'>
+    <p> #4 - data-order='2'</p>
+    Aouda in vain attempted to retain Mr. Fogg; as vainly did the detective endeavour to make the quarrel his. Passepartout wished to throw the colonel out of the window, but a sign from his master checked him. Phileas Fogg left the car, and the American followed him upon the platform. "Sir," said Mr. Fogg to his adversary, "I am in a great hurry to get back to Europe, and any delay whatever will be greatly to my disadvantage."</p>
+  </div>
+  
+  <div class="panel panel-5" data-order='{ "468-720": 0, "1024-1200": 99 }'>
+  <p>#5 - data-order='{ "468-720": 0, "1024-1200": 99 }'</p>
+  <p>"Henderson," he called, "you saw that shooting star last night?"
+"Well?" said Henderson.
+"It's out on Horsell Common now."</p>
+  </div>
+  
+  <div class="panel panel-6">
+  <p>#6 - no order specified</p>
+  <p>"You see," said the Cowardly Lion, with a whimper, "I haven't the courage to keep tramping forever, without getting anywhere at all."</p>
+  </div>
+
+</div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="../dist/jquery.sourcereordering.min.js"></script>
+
+	  <script>
+    $(document).ready(function(){
+      $(".wrapper").sourceReorder(".panel",{
+        resize:true
+      })
+    });
+    </script>
+</body>
+</html>
